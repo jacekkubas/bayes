@@ -1,1 +1,7 @@
+@import './sass/variables';
+@import './sass/animations';
+@import './sass/base';
+
 @import './components/app/app';
+@import './components/listItem/listItem';
+@import './components/modal/modal';

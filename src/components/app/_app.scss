@@ -1,3 +1,27 @@
 .app {
-  
+  padding: 70px;
+  background: $color-bg;
+  background: url('/nightsky.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+
+  &__wrapper {
+    width: 800px;
+    max-width: 90%;
+    min-height: 100vh;
+    margin: auto;
+  }
+
+  &__heading {
+    text-align: center;
+    margin-bottom: 2em;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 0 20px rgba($color-text, 0.07);
+    background-color: rgba($color-bg, 0.7);
+  }
 }

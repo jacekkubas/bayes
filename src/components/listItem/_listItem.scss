@@ -1,0 +1,39 @@
+.list-item {
+  border: solid 1px $color-light;
+  border-bottom: none;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: rgba($color-light, 0.2);
+    outline: 1px solid $color-text;
+
+    .list-item__more {
+      color: $color-highlight;
+    }
+  }
+
+  &:last-child {
+    border-bottom: solid 1px $color-light;
+  }
+
+  &__date {
+    color: $color-accent;
+    font-size: 0.9em;
+  }
+
+  &__name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 6px;
+    margin-bottom: 3px;
+  }
+
+  &__more {
+    font-weight: bold;
+  }
+}
