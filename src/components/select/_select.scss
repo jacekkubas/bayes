@@ -12,6 +12,8 @@
   cursor: pointer;
   box-sizing: border-box;
   margin: 3px;
+  border-radius: 0;
+  -webkit-appearance: none;
 
   @media screen and (max-width: $screen-mobile) {
     padding: 10px;
