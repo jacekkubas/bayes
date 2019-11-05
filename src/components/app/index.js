@@ -66,7 +66,7 @@ class App extends React.Component {
 
   sortBySeries = (e) => {
     if (e.target.value === 'all') {
-      this.setState({tourmaments: data})
+      this.setState({ tourmaments: data })
       return;
     }
 

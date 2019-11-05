@@ -1,20 +1,20 @@
 import React from 'react';
 
 class Select extends React.Component {
-  state = { 
-    data: this.props.data
+  state = {
+    series: this.props.data
   }
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <select className="select" onChange={this.props.handleChange} default="series">
         <option value="all">Choose serie...</option>
-        {this.state.data.map(element => {
+        {this.state.series.map(element => {
           return <option key={element.id} value={element.id}>{element.name}</option>
         })}
       </select>
-     );
+    );
   }
 }
- 
+
 export default Select;
