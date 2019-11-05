@@ -3,10 +3,17 @@ import data from '../../data.json';
 import ListItem from '../listItem/';
 import Modal from '../modal/';
 import Button from '../button/';
+import Select from '../select/'
 
 class App extends React.Component {
   state = {
-    data: data,
+    tourmaments: data,
+    selectData: data.map(item => item.series).filter(
+      (elem, index, self) =>
+        index === self.findIndex((t) => (
+          t.id === elem.id
+        ))
+    ),
     filteredData: [],
     isModalShown: false,
     modalProps: {
@@ -20,7 +27,7 @@ class App extends React.Component {
   }
 
   openModal = (id) => {
-    const item = this.state.data.find(el => el.id === id);
+    const item = this.state.tourmaments.find(el => el.id === id);
 
     this.setState({
       modalProps: {
@@ -48,36 +55,42 @@ class App extends React.Component {
 
   sortByDateStart = () => {
     this.setState({
-      data: this.state.data.slice().sort((a, b) => (a.date_start > b.date_start) ? 1 : -1)
+      tourmaments: this.state.tourmaments.slice().sort((a, b) => (a.date_start > b.date_start) ? 1 : -1)
     })
   }
 
   sortByDateEnd = () => {
     this.setState({
-      data: this.state.data.slice().sort((a, b) => (a.date_start < b.date_start) ? 1 : -1)
+      tourmaments: this.state.tourmaments.slice().sort((a, b) => (a.date_start < b.date_start) ? 1 : -1)
     })
   }
 
-  sortBySeries = () => {
+  sortBySeries = (e) => {
+    if (e.target.value === 'all') {
+      this.setState({tourmaments: data})
+      return;
+    }
+
     this.setState({
-      data: this.state.data.slice().sort((a, b) => (a.series.id > b.series.id) ? 1 : -1)
+      tourmaments: data.filter((item) => parseInt(item.series.id) === parseInt(e.target.value) ? true : false)
     })
   }
 
   render() {
-    const { data, isModalShown, modalProps } = this.state;
+    console.log(this.state.selectData)
+    const { tourmaments, selectData, isModalShown, modalProps } = this.state;
 
     return (
-      <div className="app">
+      <div className="app" >
         <div className="app__wrapper">
           <h1 className="app__heading">Tournament List</h1>
           <div className="app__btns">
             <Button handleClick={this.sortByDateStart} text="start date" />
             <Button handleClick={this.sortByDateEnd} text="end date" />
-            <Button handleClick={this.sortBySeries} text="series" />
+            <Select data={selectData} handleChange={this.sortBySeries} />
           </div>
           <div className="app__list">
-            {data.map(item => {
+            {tourmaments.map(item => {
               return <ListItem {...item} key={item.id} date_start={this.formatDate(item.date_start)} date_end={this.formatDate(item.date_end)} handleClick={this.openModal} />
             })}
           </div>
