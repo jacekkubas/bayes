@@ -1,0 +1,29 @@
+.select {
+  border: solid 1px $color-light;
+  background: $color-bg;
+  background: linear-gradient(
+    0deg,
+    lighten($color-bg, 3%) 0%,
+    $color-bg 35%,
+    lighten($color-bg, 3%) 100%
+  );
+  color: $color-text;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin: 3px;
+
+  @media screen and (max-width: $screen-mobile) {
+    padding: 10px;
+  }
+
+  &:hover,
+  &.active {
+    color: $color-accent;
+    text-shadow: 0 0 10px rgba($color-text, 0.9);
+  }
+
+  option {
+    color: $color-bg;
+  }
+}

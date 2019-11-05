@@ -14,7 +14,6 @@ class App extends React.Component {
           t.id === elem.id
         ))
     ),
-    filteredData: [],
     isModalShown: false,
     modalProps: {
       id: null,
@@ -77,7 +76,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.selectData)
     const { tourmaments, selectData, isModalShown, modalProps } = this.state;
 
     return (
