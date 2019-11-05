@@ -7,7 +7,7 @@ class Modal extends React.Component {
   }
 
   handleClose = () => {
-    this.setState({isClosed: true});
+    this.setState({ isClosed: true });
 
     setTimeout(() => {
       this.props.closeModal();
@@ -15,7 +15,7 @@ class Modal extends React.Component {
   }
 
   render() {
-    const { name, date_start, date_end, parentName } = this.props;
+    const { name, date_start, date_end, tournamentName, tournamentCity, tournamentDate } = this.props;
 
     return (
       <aside className={this.state.isClosed ? 'modal modal--closed' : 'modal'}>
@@ -24,7 +24,8 @@ class Modal extends React.Component {
             <Close />
           </button>
           <div className="modal__content">
-            <h2>{parentName}</h2>
+            <h2 className="modal__heading">{tournamentName} - <span className="modal__city">{tournamentCity}</span></h2>
+            <div className="modal__date">{tournamentDate}</div>
             <div className="modal__text"><strong>Series:</strong> <span>{name}</span></div>
             <div className="modal__text"><strong>Series start date:</strong> <span>{date_start}</span></div>
             <div className="modal__text"><strong>Series end date:</strong> <span>{date_end}</span></div>

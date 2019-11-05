@@ -8,6 +8,11 @@
   cursor: pointer;
   transition: background-color 0.3s;
 
+  @media screen and (max-width: $screen-mobile) {
+    display: block;
+    padding: 15px;
+  }
+
   &:hover {
     background-color: rgba($color-light, 0.2);
     outline: 1px solid $color-text;
@@ -35,5 +40,9 @@
 
   &__more {
     font-weight: bold;
+
+    @media screen and (max-width: $screen-mobile) {
+      margin-top: 40px;
+    }
   }
 }

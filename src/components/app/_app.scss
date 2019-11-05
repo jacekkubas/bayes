@@ -5,6 +5,10 @@
   background-size: cover;
   background-attachment: fixed;
 
+  @media screen and (max-width: $screen-mobile) {
+    padding: 40px 20px;
+  }
+
   &__wrapper {
     width: 800px;
     max-width: 90%;
@@ -14,7 +18,12 @@
 
   &__heading {
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 30px;
+  }
+
+  &__btns {
+    margin-bottom: 30px;
+    text-align: center;
   }
 
   &__list {

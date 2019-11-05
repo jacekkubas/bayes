@@ -20,7 +20,7 @@
     max-width: 90%;
     background-color: $color-bg;
     box-shadow: 0 0 10px rgba($color-text, 0.2);
-    padding: 60px 40px 40px;
+    padding: 40px;
     position: relative;
   }
 
@@ -35,12 +35,28 @@
     svg {
       width: 40px;
       height: 40px;
-      stroke: $color-highlight;
+      stroke: $color-text;
     }
 
     &:focus,
     &:active {
       outline: none;
     }
+
+    &:hover {
+      svg {
+        stroke: $color-highlight;
+      }
+    }
+  }
+
+  &__heading {
+    font-size: 1.4em;
+    margin-bottom: 3px;
+  }
+
+  &__date {
+    color: $color-accent;
+    margin-bottom: 30px;
   }
 }
